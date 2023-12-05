@@ -21,9 +21,12 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
-    "pumaplot",
+    # custom added below
+    "pumaplot/",
     "setup.py",
+    "_modidx.py",
 ]
+
 
 extend-include = ["*.ipynb"]
 
@@ -33,18 +36,16 @@ indent-width = 4
 
 
 [lint]
-# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
-select = []
-ignore = []
-
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
-unfixable = []
+
+ignore = ["F403"]
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [format]
+
 # Like Black, use double quotes for strings.
 quote-style = "double"
 

@@ -18,9 +18,9 @@ repos:
       hooks:
           # run the linter with the .ruff.toml file for config
           # fix all fixeable errors
-          #   - id: ruff
-          #     args: [".", "--config", ".ruff.toml", "--fix"]
+          - id: ruff
+            args: [".", "--config", ".ruff.toml", "--fix"]
 
           #   # run the formatter with the .ruff.toml file for config
           - id: ruff-format
-            args: ["--config", ".ruff.toml", "-v"]
+            args: [".", "--config", ".ruff.toml"]
