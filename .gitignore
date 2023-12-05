@@ -149,3 +149,9 @@ checklink/cookies.txt
 
 # Quarto
 .quarto
+
+# ruff
+.ruff_cache
+
+# nbdev ouput folder
+pumaplot/*
