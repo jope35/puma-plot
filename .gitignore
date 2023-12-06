@@ -152,6 +152,3 @@ checklink/cookies.txt
 
 # ruff
 .ruff_cache
-
-# nbdev ouput folder
-pumaplot/*

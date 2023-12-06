@@ -11,12 +11,11 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
 
-  # specific nbdev hooks, cleans notebooks and export the latest
+  # specific nbdev hooks, cleans notebooks
   - repo: https://github.com/fastai/nbdev
     rev: 2.3.13
     hooks:
       - id: nbdev_clean
-      - id: nbdev_export
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
@@ -30,3 +29,9 @@ repos:
       #   # run the formatter with the .ruff.toml file for config
       - id: ruff-format
         args: [".", "--config", ".ruff.toml"]
+
+  # export the relevant files as modified by ruff
+  - repo: https://github.com/fastai/nbdev
+    rev: 2.3.13
+    hooks:
+      - id: nbdev_export
