@@ -1,5 +1,5 @@
 ## Issue
- 
+
 ## Description
 
 ## Type of work
@@ -10,5 +10,4 @@
 
 ## Checklist
 
-- [ ]  
- 
+- [ ]
