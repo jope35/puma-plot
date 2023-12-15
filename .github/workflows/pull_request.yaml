@@ -1,0 +1,20 @@
+name: Pull Request Trigger
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  precommit:
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    name: Pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: pre-commit
+        uses: pre-commit/action@v3.0.0

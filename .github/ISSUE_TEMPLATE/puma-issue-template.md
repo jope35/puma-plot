@@ -8,16 +8,16 @@ assignees: ''
 ---
 
 ## Description
- 
+
 
 ## Tasks
- 
-- [ ] 
- 
- 
+
+- [ ]
+
+
 ## Acceptance criteria
 
-- [ ]  
- 
- 
+- [ ]
+
+
 ## Extra
