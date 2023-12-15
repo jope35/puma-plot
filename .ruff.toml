@@ -27,8 +27,15 @@ exclude = [
     "_modidx.py",
 ]
 
-
+# extende the inclusion list to also include jupyternotebooks
 extend-include = ["*.ipynb"]
+
+
+# I -> enable isort
+# N -> pep8 naming
+# PD -> pandas-vet
+
+extend-select = ['I','N','PD']
 
 # Same as Black.
 line-length = 88
