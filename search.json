@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "pumaplot",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "pumaplot"
+    ]
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "pumaplot",
+    "section": "Install",
+    "text": "Install\npip install pumaplot",
+    "crumbs": [
+      "pumaplot"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "pumaplot",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1 + 1\n\n2",
+    "crumbs": [
+      "pumaplot"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nfoo\n\n foo ()",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "dev_utils.html",
+    "href": "dev_utils.html",
+    "title": "pumaplot",
+    "section": "",
+    "text": "# initialze the noise generator\nnp.random.seed(42)\n\n\nn_series = (1, 3, 7, 11)\ntime_periods = [\n    (\"H\", 24, 36),  # one day\n    (\"H\", 24 * 7, 36 * 7),  # one week\n    (\"D\", 1 * 28, 1 * 33),  # one month\n    (\"D\", 3 * 28, 3 * 33),  # less than half year\n    (\"D\", 6 * 28, 6 * 33),  # half year\n    (\"D\", 7 * 28, 7 * 33),  # more than half year\n    (\"D\", 11 * 28, 11 * 33),  # less than year\n    (\"D\", 12 * 28, 12 * 33),  # one year\n    (\"D\", 13 * 28, 13 * 33),  # more than half year\n    (\"D\", 35 * 28, 35 * 33),  # less than three year\n    (\"D\", 36 * 28, 36 * 33),  # three year\n    (\"D\", 37 * 28, 37 * 33),  # more than three year\n    (\"D\", 42 * 28, 42 * 33),  # way more than three year\n]\n\n# create the cartesian product, afterwhich these can be generated\ncart_series = [i for i in product(n_series, time_periods)]\n\n\n# generate the series add some noise and write to a csv\n# these can be used as a fixed dataset for testing purposes\nfor n_series, (freq, min_length, max_length) in cart_series:\n    # generate the series and assign some noise to it\n    curr_series = generate_series(\n        n_series=n_series, freq=freq, min_length=min_length, max_length=max_length\n    )\n    # this noise make the series unique\n    curr_series = curr_series.assign(\n        y=curr_series[\"y\"] + 3 * np.random.randn(curr_series.shape[0])\n    )\n\n    # creating a pathlib object and using that for the export\n    # checks if the folder exists and if not mkdir\n    export_path = Path(\n        \"data\", \"dummy\", f\"{n_series}\", f\"{n_series}_{freq}_{min_length}.csv\"\n    )\n\n    if not export_path.parent.exists():\n        export_path.parent.mkdir(parents=True)\n\n    curr_series.to_csv(\n        export_path,\n        sep=\";\",\n        index=False,\n    )",
+    "crumbs": [
+      "dev_utils.html"
+    ]
+  }
+]
